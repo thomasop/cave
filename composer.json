@@ -1,0 +1,15 @@
+{
+    "name": "thomasdasilva/cave2",
+    "autoload": {
+        "psr-4": {
+            "Thomasdasilva\\Cave2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "thomasop",
+            "email": "tdss33@hotmail.com"
+        }
+    ],
+    "require": {}
+}
