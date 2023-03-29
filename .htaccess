@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule ^([a-z\-]+)$ /cave2/index.php?r=$1
+RewriteRule ^([a-z-\-]+)/([a-z-\-]+)$ /cave2/index.php?r=$1&id=$2
+RewriteRule ^([a-z\-]+)/([a-z\-]+)/([a-zA-Z0-9-]+)$ /cave2/index.php?r=$1&id=$2&zz=$3

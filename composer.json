@@ -1,8 +1,10 @@
 {
     "name": "thomasdasilva/cave2",
     "autoload": {
-        "psr-4": {
-            "Thomasdasilva\\Cave2\\": "src/"
+        "psr-4" : {"App\\controller\\" : "App/controller",
+            "App\\manager\\" : "App/manager",
+            "App\\tool\\" : "App/tool",
+            "App\\entity\\" : "App/entity"
         }
     },
     "authors": [
@@ -11,5 +13,7 @@
             "email": "tdss33@hotmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "twig/twig": "^3.5"
+    }
 }

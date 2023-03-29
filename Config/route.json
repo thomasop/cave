@@ -1,0 +1,7 @@
+[{
+	"path" : "/cave2/",
+	"controller" : "ControllerIndex",
+	"action" : "index",
+	"method" : "GET",
+	"param" : []
+}]

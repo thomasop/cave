@@ -1,0 +1,28 @@
+{% extends "template.twig" %}
+{% block title %}
+{% set title = 'Cave' %} 
+{{ title }}
+{% endblock %}
+{% block head %} 
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+<header>
+    <ul >  
+        <li><a class="active linkHeader" href="/cave/">Accueil</a></li>
+        <li><a class="linkHeader" href="/cave/a">Cave A</a></li>
+        <li><a class="linkHeader" href="/cave/b">Cave B</a></li>
+        <li><a class="linkHeader" href="/cave/c">Cave C</a></li>
+        <li><a class="linkHeader" href="/cave/d">Cave D</a></li>
+        <li><a class="linkHeader" href="/cave/e">Cave E</a></li>
+        <li><a class="linkHeader" href="/cave/f">Cave F</a></li>
+        <li><a class="linkHeader" href="/cave/g">Cave G</a></li>
+    </ul>
+</header>
+
+<main>
+    <section>
+        <h1>Votre cave à vins</h1>
+    </section>
+</main>
+{% endblock %}
