@@ -3,20 +3,22 @@
 {% set title = 'Cave' %} 
 {{ title }}
 {% endblock %}
-{% block head %} 
+{% block head %}
+<link rel="stylesheet" href="Public/css/header.css">
+    <link rel="stylesheet" href="Public/css/index.css">  
     {{ parent() }}
 {% endblock %}
 {% block body %}
 <header>
     <ul >  
-        <li><a class="active linkHeader" href="/cave/">Accueil</a></li>
-        <li><a class="linkHeader" href="/cave/a">Cave A</a></li>
-        <li><a class="linkHeader" href="/cave/b">Cave B</a></li>
-        <li><a class="linkHeader" href="/cave/c">Cave C</a></li>
-        <li><a class="linkHeader" href="/cave/d">Cave D</a></li>
-        <li><a class="linkHeader" href="/cave/e">Cave E</a></li>
-        <li><a class="linkHeader" href="/cave/f">Cave F</a></li>
-        <li><a class="linkHeader" href="/cave/g">Cave G</a></li>
+        <li><a class="active linkHeader" href="/cave2/">Accueil</a></li>
+        <li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
+        <li><a class="linkHeader" href="/cave2/b">Cave B</a></li>
+        <li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
+        <li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
+        <li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
+        <li><a class="linkHeader" href="/cave2/f">Cave F</a></li>
+        <li><a class="linkHeader" href="/cave2/g">Cave G</a></li>
     </ul>
 </header>
 

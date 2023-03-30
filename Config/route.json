@@ -4,4 +4,11 @@
 	"action" : "index",
 	"method" : "GET",
 	"param" : []
+},
+{
+	"path" : "/cave2/a",
+	"controller" : "ControllerA",
+	"action" : "index",
+	"method" : "GET",
+	"param" : []
 }]

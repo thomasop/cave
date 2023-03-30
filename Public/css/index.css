@@ -1,0 +1,268 @@
+main {
+    background-image: url("../assets/grapes.jpg");
+    padding-bottom: 450px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.listpos {
+    display: block;
+    margin-left: 100px !important;
+    padding-top: 20px !important;
+}
+
+table {
+    width: 90%;
+    margin: 0px 50px 0px 50px;
+    border-collapse: separate;
+}
+
+.flex-detail {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-detail2 {
+    display: flex;
+flex-direction: column;
+align-self: center;
+align-content: center;
+align-items: center;
+}
+td {
+    text-align: center;
+    height: 60px;
+    width: 60px;
+}
+
+.letterTab {
+    text-align: end;
+    padding-right: 10px;
+}
+
+.linkBoutRed, .linkBoutWhite, .linkBoutChamp {
+    padding: 20px 30px 20px 30px;
+    border-radius: 50%;
+}
+
+.modale {
+    display: none;
+    position: absolute;
+    width: 1200px;
+    height: 800px;
+    top: 400px;
+    left: 50px;
+    background-color: aqua;
+    padding-bottom: 100px;
+}
+
+@media screen and (min-width: 1400px) {
+    .modale {
+        width: 550px;
+    }
+    
+}
+
+@media screen and (min-width: 1600px) {
+    .modale {
+        width: 700px;
+    }
+    
+}
+
+
+@media screen and (min-width: 1800px) {
+    .modale {
+        left: 100px;
+        width: 800px;
+    }
+    
+}
+
+@media screen and (min-width: 2000px) {
+    .modale {
+        left: 150px;
+        width: 900px;
+    }
+    
+}
+
+.burgerBtnClose {
+    position: relative;
+    top: 10px;
+    right: -10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.cross {
+    position: relative;
+    top: -17px;
+    right: 3px;
+    font-size: 70px;
+}
+
+.pData {
+    font-size: 20px;
+    margin: 0px 0px 0px 50px;
+}
+
+table tr td
+{
+    border-radius: 50%;
+}
+
+tr th {
+    text-align: center;
+}
+
+th p {
+    margin-left: 300px;
+}
+
+.flex-radio {
+    display: flex;
+}
+
+p {
+    margin: 0px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.9);
+}
+
+span {
+    display: block;
+}
+
+.link {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.link:hover {
+    color: red;
+    background-color: beige;
+}
+
+td a {
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+
+.bouteille {
+    margin: 50px 0 0 50px;
+    font-size: 20px;
+}
+
+.bouteille1 {
+    margin: 0 0 0 50px;
+    font-size: 20px;
+}
+
+.bouteille2 {
+    margin: 0 0 50px 50px;
+    font-size: 20px;
+}
+
+.add {
+    margin: 50px;
+}
+
+.addbouteille {
+    margin-bottom: 50px;
+}
+
+.form-group {
+    margin-top: 50px;
+    margin: 0 50px 0 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group-1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.form-group-2 {
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+
+label {
+    font-size: 18px;
+}
+
+select {
+    width: 60%;
+}
+
+.input {
+    font-size: 18px;
+    height: 20px;
+    border: 1px solid black;
+    width: 60%;
+}
+
+.borderReturn {
+    padding: 50px 0 50px 50px;
+}
+
+.borderBot {
+    margin: 0 0 50px 50px;
+}
+
+.textdel {
+    font-size: 18px;
+    margin: 50px 0 50px 50px;
+}
+
+.paddingC {
+    padding-bottom: 50px;
+}
+
+.errorMessage {
+    margin: 0px;
+    background: red;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.errorInput {
+    font-size: 18px;
+    color: red;
+    margin: 0 0 50px 50px;
+}
+
+.dataError {
+    margin: 0 0 0 100px;
+    font-size: 20px;
+}
+
+.dBlock {
+    display: block;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+.dBlock:hover {
+    color:red;
+    font-size: 26px;
+}
+
+.active {
+    background-color: white;
+    color: black;
+    border: 4px solid black;
+    padding: 5px;
+}
