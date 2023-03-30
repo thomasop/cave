@@ -28,4 +28,35 @@ class CaveaManager extends Manager
         $result = $bdGetAll->fetchAll(PDO::FETCH_ASSOC);
         return $result;  
     }
+
+    public function getOne($slug, $annee)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare('SELECT * FROM cave_a WHERE slug = ? AND annee = ?');
+        $bdGetAll->execute([$slug, $annee]);
+        $result = $bdGetAll->fetch(PDO::FETCH_ASSOC);
+        return $result;  
+    }
+
+    public function addCave($nom, $appellation, $annee, $type, $region, $contenance, $slug, $pays)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'INSERT INTO cave_a(nom, appellation, annee, typev, region, contenance, slug, pays) VALUES(?, ?, ?, ?, ?, ?, ?, ?)'
+        );
+        $bdGetAll->execute(array($nom, $appellation, $annee, $type, $region, $contenance, $slug, $pays));
+        return $bdGetAll;  
+    }
+
+    public function updateQtn($id, $qtn)
+    {
+        $bd = $this->connection();
+        $bdGet = $bd->prepare(
+            'UPDATE cave_a SET quantite = :qtn WHERE id = :id'
+        );
+        $bdGet->bindValue(':id', (int)$id["id"], PDO::PARAM_INT);
+        $bdGet->bindValue(':qtn', $qtn, PDO::PARAM_INT);
+        $bdGet->execute();
+        return $bdGet;  
+    }
 }

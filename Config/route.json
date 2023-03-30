@@ -11,4 +11,18 @@
 	"action" : "index",
 	"method" : "GET",
 	"param" : []
+},
+{
+	"path" : "/cave2/a/addview",
+	"controller" : "ControllerA",
+	"action" : "addView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/a/add",
+	"controller" : "ControllerA",
+	"action" : "add",
+	"method" : "POST",
+	"param" : []
 }]
