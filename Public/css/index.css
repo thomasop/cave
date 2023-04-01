@@ -1,5 +1,5 @@
 main {
-    background-image: url("../assets/grapes.jpg");
+    background-image: url("../assets/grapes.jpg"), url("../../assets/grapes.jpg");
     padding-bottom: 450px;
     background-repeat: no-repeat;
     background-size: cover;

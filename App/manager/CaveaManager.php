@@ -98,4 +98,23 @@ class CaveaManager extends Manager
         $result = $bdGetAll->fetch(PDO::FETCH_ASSOC);
         return $result;  
     }
+
+    public function update($id, $nom, $appellation, $annee, $typev, $region, $contenance, $slug, $pays)
+    {
+        $bd = $this->connection();
+        $bdGet = $bd->prepare(
+            'UPDATE cave_a SET nom = :nom, appellation = :appellation, annee = :annee, typev = :typev, region = :region, contenance = :contenance, slug = :slug, pays = :pays WHERE id = :id'
+        );
+        $bdGet->bindValue(':id', (int)$id["id"], PDO::PARAM_INT);
+        $bdGet->bindValue(':nom', $nom, PDO::PARAM_STMT);
+        $bdGet->bindValue(':appellation', $appellation, PDO::PARAM_STMT);
+        $bdGet->bindValue(':annee', $annee, PDO::PARAM_STMT);
+        $bdGet->bindValue(':typev', $typev, PDO::PARAM_STMT);
+        $bdGet->bindValue(':region', $region, PDO::PARAM_STMT);
+        $bdGet->bindValue(':contenance', $contenance, PDO::PARAM_STMT);
+        $bdGet->bindValue(':slug', $slug, PDO::PARAM_STMT);
+        $bdGet->bindValue(':pays', $pays, PDO::PARAM_STMT);
+        $bdGet->execute();
+        return $bdGet;  
+    }
 }

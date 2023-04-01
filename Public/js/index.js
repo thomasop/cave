@@ -296,7 +296,6 @@ if (select2) {
       select2.childNodes[25].getAttribute("value") ==
       select2.getAttribute("value")
     ) {
-      console.log(select2);
       select2.childNodes[1].setAttribute(
         "value",
         select2.childNodes[25].getAttribute("value")
