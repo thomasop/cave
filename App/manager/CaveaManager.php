@@ -59,4 +59,43 @@ class CaveaManager extends Manager
         $bdGet->execute();
         return $bdGet;  
     }
+
+    public function deletePosition($colonne, $ligne)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'DELETE FROM position_a
+            WHERE position_a.colonne = ?
+            AND position_a.ligne = ?'
+        );
+        $bdGetAll->execute(array($colonne, $ligne));
+        return $bdGetAll;  
+    }
+
+    public function deleteBout($id)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'DELETE FROM cave_a
+            WHERE cave_a.id = ?'
+        );
+        $bdGetAll->execute(array($id));
+        return $bdGetAll;  
+    }
+
+    public function oneByPosition($colonne, $ligne)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'SELECT c.*
+            FROM cave_a c
+            JOIN position_cave_a a ON c.id = a.cave_a_id
+            JOIN position_a p ON a.position_id = p.id
+            WHERE p.colonne = ?
+            AND p.ligne = ?'
+        );
+        $bdGetAll->execute(array($colonne, $ligne));
+        $result = $bdGetAll->fetch(PDO::FETCH_ASSOC);
+        return $result;  
+    }
 }
