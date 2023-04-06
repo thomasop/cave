@@ -13,6 +13,10 @@ class ControllerA extends Controller
         $caveArray = new CaveArray();
         $data = $caveArray->array($manager);
         $twigview = $this->getTwig();
+        for ($i = 0; $i < count($data[4]) ; $i++) {
+            var_dump($data[4][$i][3]);
+        }
+        
         $twigpostview = $twigview->load('/cave_a/cave_a_all/index.twig');
         echo $twigpostview->render([
             'lists' => $data[0],
@@ -21,6 +25,39 @@ class ControllerA extends Controller
             'slug' => $data[3],
             'all' => $data[4],
         ]);
+    }
+
+    public function show()
+    {
+        $manager = new CaveaManager();
+        $strYear = explode("-", $_GET['zz']);
+        $count = count($strYear);
+        $strApostro = str_replace("apostrophe", "'", $_GET['zz']);
+        $one = $manager->getOne(str_replace("-" . $strYear[$count - 1], "", $strApostro), $strYear[$count - 1]);
+        if ($one) {
+            $caveArray = new CaveArray();
+            $data = $caveArray->array($manager);
+            $posArray = [];
+            for ($i = 0; $i < count($data[4]); $i++) {
+                if (str_replace("-" . $strYear[$count - 1], "", $strApostro) == $data[4][$i][1] && $strYear[$count - 1] == $data[4][$i][3]) {
+                    array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11]);
+                }
+            }
+            $twigview = $this->getTwig();
+            $twigpostview = $twigview->load('cave_a/cave_a_detail/index.twig');
+            echo $twigpostview->render([
+                'lists' => $data[0],
+                'letters' => $data[1],
+                'one' => $one,
+                'slug' => $data[3],
+                'all' => $data[4],
+                'allpos' => $posArray,
+            ]);
+        } else {
+            $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
+            $this->phpSession()->redirect('/cave/a');
+        }
+
     }
 
     public function addView()

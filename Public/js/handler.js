@@ -13,13 +13,15 @@ function myHandler(name, all, test, cave) {
         var new10 = new6.replace(/ô/g, "o")
         return new10.toLowerCase().includes(nomAr.replace(/[\!]/g, " ").toLowerCase());
     });
+    var ar = []
     var get = getData.filter((g) => {
+        ar.push(g[10] + "-" + g[11])
         return Number(g[11] - 1).toString().includes(test);
     });
-    display(get[0], cave)
+    display(get[0], cave, ar)
 }
 
-function display(data, cave) {
+function display(data, cave, ar) {
     var modale = document.querySelector('.modale');
     modale.style.height = "700px"
     var show = document.querySelector('.dataModal');
@@ -66,6 +68,11 @@ function display(data, cave) {
         p8.textContent = "Position : " + data[10] + "-" + data[11][0]
     }
     p8.style.display = "block"
+    var p9 = document.createElement("p");
+    var str = ""
+    ar.map((o) => str = str + o + ", ")
+    p9.setAttribute("class", "pData")
+    p9.textContent = "Positions : " + str.substring(0, str.length - 2)
     var a1 = document.createElement("a");
     a1.setAttribute("class", "link add")
     a1.setAttribute("href", "/cave2/" + cave + "/editview/" + data[4].replace(/[\/]/g, "apostrophe") + "-" + data[3])
@@ -90,6 +97,7 @@ function display(data, cave) {
     show.appendChild(p6);
     show.appendChild(p7);
     show.appendChild(p8);
+    show.appendChild(p9);
     show.appendChild(a1);
     show.appendChild(a2);
     show.appendChild(a3);

@@ -34,6 +34,13 @@
 	"param" : []
 },
 {
+	"path" : "/cave2/a/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerA",
+	"action" : "show",
+	"method" : "GET",
+	"param" : []
+},
+{
 	"path" : "/cave2/a/delete",
 	"controller" : "ControllerA",
 	"action" : "delete",

@@ -25,6 +25,64 @@
 <main>
     <section>
         <h1>Votre cave à vins</h1>
+        <p class="bouteille">Il reste un total de {{all}} bouteilles dans toutes les caves</p>
+    </section>
+    <section>
+        <h2>Rechercher</h2>
+        <form>
+            <input class="search" type="text" name="search" id="search" oninput="myHandler();" data-id="{{ allName|json_encode }}">
+        </form>
+        <div class="dataError showData"></div>
     </section>
 </main>
+<script>
+    function myHandler() {
+        var input = document.forms[0][0];
+        var show = document.querySelector('.showData');
+        var id = document.querySelector('#search').dataset.id;
+        var ar = JSON.parse(id)
+         if(input.value.length > 0) {
+            var getData = ar.filter((bout) => {
+                return bout[0].toLowerCase().includes(input.value.toLowerCase());
+            });
+            if(getData.length > 0) {
+                show.textContent = ""
+                display(getData)
+            } else {
+                show.textContent = "Aucune bouteille trouvé"
+            }
+         } else if (input.value.length == 0){
+            show.textContent = ""
+         }
+    }
+
+    function display(data) {
+        console.log(data)
+        var show = document.querySelector('.showData');
+        data.forEach(element => {
+            var a = document.createElement("a");
+            var div = document.createElement("div");
+            div.style.display = "flex"
+            var str = element[0].replace(/ /g, "-")
+            var new7 = str.replace(/â/g, "a")
+            var new1 = new7.replace(/à/g, "a")
+            var new2 = new1.replace(/ê/g, "e")
+            var new3 = new2.replace(/é/g, "e")
+            var new4 = new3.replace(/è/g, "e")
+            var new5 = new4.replace(/î/g, "i")
+            var new6 = new5.replace(/û/g, "u")
+            var new10 = new6.replace(/ô/g, "o")
+            a.setAttribute('href', "/cave2/" + element[1] + "/detail/" + new10.replace(/[']/g, "apostrophe") + "-" + element[2])
+            a.setAttribute("class", "dBlock")
+            a.setAttribute("target", "_self")
+            a.textContent = element[0]
+            var span = document.createElement("span")
+            span.textContent = element[2]
+            span.style.marginLeft = "10px"
+            div.appendChild(a);
+            div.appendChild(span);
+            show.appendChild(div);
+        });
+    }
+</script>
 {% endblock %}
