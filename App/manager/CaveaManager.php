@@ -29,6 +29,15 @@ class CaveaManager extends Manager
         return $result;  
     }
 
+    public function getPos($colonne, $ligne)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare('SELECT id FROM position_a WHERE colonne = ? AND ligne = ?');
+        $bdGetAll->execute([$colonne, $ligne]);
+        $result = $bdGetAll->fetch(PDO::FETCH_ASSOC);
+        return $result;  
+    }
+
     public function getOne($slug, $annee)
     {
         $bd = $this->connection();
@@ -36,6 +45,26 @@ class CaveaManager extends Manager
         $bdGetAll->execute([$slug, $annee]);
         $result = $bdGetAll->fetch(PDO::FETCH_ASSOC);
         return $result;  
+    }
+
+    public function add($nom, $annee)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'INSERT INTO position_cave_a(position_id, cave_a_id) VALUES(?, ?)'
+        );
+        $bdGetAll->execute(array($nom, $annee));
+        return $bdGetAll;  
+    }
+
+    public function addPosition($colonne, $ligne)
+    {
+        $bd = $this->connection();
+        $bdGetAll = $bd->prepare(
+            'INSERT INTO position_a(colonne, ligne) VALUES(?, ?)'
+        );
+        $bdGetAll->execute(array($colonne, $ligne));
+        return $bdGetAll;  
     }
 
     public function addCave($nom, $appellation, $annee, $type, $region, $contenance, $slug, $pays)
