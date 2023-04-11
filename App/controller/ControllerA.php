@@ -13,10 +13,6 @@ class ControllerA extends Controller
         $caveArray = new CaveArray();
         $data = $caveArray->array($manager);
         $twigview = $this->getTwig();
-        for ($i = 0; $i < count($data[4]) ; $i++) {
-            var_dump($data[4][$i][3]);
-        }
-        
         $twigpostview = $twigview->load('/cave_a/cave_a_all/index.twig');
         echo $twigpostview->render([
             'lists' => $data[0],

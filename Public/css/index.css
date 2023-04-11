@@ -252,10 +252,15 @@ select {
     display: block;
     text-decoration: none;
     list-style-type: none;
+    color: black;
 }
 
 .dBlock:hover {
-    color:red;
+    color:white;
+}
+
+.dBlock:hover ~ span {
+    color:white;
 }
 
 .active {
