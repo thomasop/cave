@@ -2,8 +2,9 @@
 
 namespace App\controller;
 
-use App\manager\CaveaManager;
 use App\tool\CaveArray;
+use App\manager\CaveaManager;
+use App\controller\Controller;
 
 class ControllerA extends Controller
 {

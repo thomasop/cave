@@ -59,10 +59,12 @@ function display(data, cave, ar) {
     var p8 = document.createElement("p");
     p8.setAttribute("class", "pData")
     if (data[11][1]) {
-        if (data[11][1] === '0') {
+        if (data[11].length == 1) {
             p8.textContent = "Position : " + data[10] + "-" + data[11]
-        } else {
+        } else if (data[11].length == 2) {
             p8.textContent = "Position : " + data[10] + "-" + data[11][1]
+        } else if (data[11].length == 3) {
+            p8.textContent = "Position : " + data[10] + "-" + data[11][2]
         }
     } else {
         p8.textContent = "Position : " + data[10] + "-" + data[11][0]
@@ -70,7 +72,11 @@ function display(data, cave, ar) {
     p8.style.display = "block"
     var p9 = document.createElement("p");
     var str = ""
-    ar.map((o) => str = str + o + ", ")
+    ar.map((o) => {
+        let s = o.split("-")
+        s[1].length == 1 ? str = str + o + ", " : (s[1].length == 2 ? str = str + s[0] + "-" + s[1][1] + ", " : str = str + s[0] + "-" + s[1][2] + ", ")
+        
+    })
     p9.setAttribute("class", "pData")
     p9.textContent = "Positions : " + str.substring(0, str.length - 2)
     var a1 = document.createElement("a");

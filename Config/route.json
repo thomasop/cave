@@ -74,4 +74,11 @@
 	"action" : "edit",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/b",
+	"controller" : "ControllerB",
+	"action" : "index",
+	"method" : "GET",
+	"param" : []
 }]
