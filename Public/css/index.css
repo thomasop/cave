@@ -211,6 +211,10 @@ select {
     width: 60%;
 }
 
+.displayflexbout {
+    display: flex;
+}
+
 .borderReturn {
     padding: 50px 0 50px 50px;
 }

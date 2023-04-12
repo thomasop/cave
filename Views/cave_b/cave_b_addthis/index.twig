@@ -1,6 +1,6 @@
 {% extends "template.twig" %}
 {% block title %}
-	{% set title = 'Cave A ajouter position' %}
+	{% set title = 'Cave B ajouter position' %}
 	{{ title }}
 {% endblock %}
 {% block head %}
@@ -17,8 +17,8 @@
 	<header>
 		<ul>
 			<li><a class="linkHeader" href="/cave2/">Accueil</a></li>
-			<li><a class="active linkHeader" href="/cave2/a">Cave A</a></li>
-			<li><a class="linkHeader" href="/cave2/b">Cave B</a></li>
+			<li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
+			<li><a class="active linkHeader" href="/cave2/b">Cave B</a></li>
 			<li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
 			<li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
 			<li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
@@ -29,7 +29,7 @@
 	<main>
 		<section>
 			<p class="borderReturn">
-				<a class="link" href="/cave2/a">Retour à la cave A</a>
+				<a class="link" href="/cave2/b">Retour à la cave B</a>
 			</p>
 			<h1>{{one.nom}}</h1>
 			<p class="bouteille">Quantité :
@@ -46,7 +46,7 @@
 				{{one.pays}}</p>
 			<p class="bouteille1">Contenance :
 				{{one.contenance}}</p>
-			<p class="bouteille2 displayflexbout">Positions actuelles : 
+            <p class="bouteille2 displayflexbout">Positions actuelles : 
             {% for pos in posBout %}
                 <span>&nbsp;{{pos.10}}-{{pos.11}},</span>
             {% endfor %}
@@ -54,7 +54,7 @@
 			<p class="textdel">Ajouter des positions pour cette bouteille</p>
 		</section>
 		<section>
-			<form name="addOne" action="/cave2/a/addposition/{{ apostrophe }}" method="POST">
+			<form name="addOne" action="/cave2/b/addposition/{{ apostrophe }}" method="POST">
 				<div class="modale">
 					<button class="burgerBtnClose">
 						<div>
@@ -67,6 +67,7 @@
 					<table>
 						{% set inity = 1 %}
 						{% set init = 1 %}
+						{% set nnnn = 0 %}
 						{% set test = 0 %}
 						<tr>
 							<th></th>
@@ -90,8 +91,9 @@
 										{% set key = init %}
 										{% if key is same as(init) %}
 											<th class="letterTab">
-												<p class="letter">{{letters[key]}}</p>
+												<p class="letter">{{letters[init - nnnn]}}</p>
 											</th>
+											{% set nnnn = nnnn + 5 %}
 										{% endif %}
 									{% endif %}
 									{% set init = init + 1 %}
@@ -112,13 +114,13 @@
 										<td id="{{ inity }}">
 											{% set testslug = slug[test] %}
 											{% if l[1] == "Vin rouge" %}
-												<a class="linkBoutRed" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+												<a class="linkBoutRed" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'b');"></a>
 											{% endif %}
 											{% if l[1] == "Vin blanc" %}
-												<a class="linkBoutWhite" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+												<a class="linkBoutWhite" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'b');"></a>
 											{% endif %}
 											{% if l[1] == "Champagne" %}
-												<a class="linkBoutChamp" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+												<a class="linkBoutChamp" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'b');"></a>
 											{% endif %}
 											<span></span>
 											{% set test = test + 1 %}
@@ -136,7 +138,7 @@
 			</form>
 		</section>
 	</main>
-	<script src="../../Public/js/index.js"></script>
-	<script src="../../Public/js/seeDetailA.js"></script>
+	<script src="../../Public/js/indexB.js"></script>
+	<script src="../../Public/js/seeDetailB.js"></script>
 	<script src="../../Public/js/handler.js"></script>
 {% endblock %}

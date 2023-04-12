@@ -176,6 +176,12 @@ class ControllerA extends Controller
         if ($one) {
             $caveArray = new CaveArray();
             $data = $caveArray->array($manager);
+            $posBout = [];
+            for ($i = 0; $i < count($data[4]); $i++) {
+                if ($one["nom"] === $data[4][$i][1] && $one["annee"] === $data[4][$i][3]) {
+                    array_push($posBout, $data[4][$i]);
+                }
+            }
             $twigview = $this->getTwig();
             $twigpostview = $twigview->load('cave_a/cave_a_addthis/index.twig');
             echo $twigpostview->render([
@@ -185,6 +191,7 @@ class ControllerA extends Controller
                 'slug' => $data[3],
                 'all' => $data[4],
                 'apostrophe' => $_GET['zz'],
+                'posBout' => $posBout
             ]);
         } else {
             $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
