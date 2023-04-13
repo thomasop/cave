@@ -157,7 +157,7 @@ class ControllerA extends Controller
         $strApostro = str_replace("apostrophe", "'", $_GET['zz']);
         $one = $manager->getOne(str_replace("-" . $strYear[$count - 1], "", $strApostro), $strYear[$count - 1]);
         if ($one) {
-            $update = $manager->update($one, $_POST["nom"], $_POST["appellation"], $_POST["annee"], $_POST["type"], $_POST["region"], $_POST["contenance"], str_replace([" ", "â", "é", "è", "à", "ê", "î", "û", "ô"], ["-", "a", "e", "e", "a", "e", "i", "u", "o"], $_POST['nom']), $_POST['pays']);
+            $update = $manager->update($one, htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["appellation"]), htmlspecialchars($_POST["annee"]), htmlspecialchars($_POST["type"]), htmlspecialchars($_POST["region"]), htmlspecialchars($_POST["contenance"]), str_replace([" ", "â", "é", "è", "à", "ê", "î", "û", "ô"], ["-", "a", "e", "e", "a", "e", "i", "u", "o"], htmlspecialchars($_POST['nom'])), htmlspecialchars($_POST['pays']));
             $this->phpSession()->set('stop', 'Cette bouteille a été modifié.');
             $this->phpSession()->redirect('/cave2/a');
         } else {

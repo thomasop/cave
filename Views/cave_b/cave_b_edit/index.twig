@@ -1,0 +1,115 @@
+{% extends "template.twig" %}
+{% block title %}
+	{% set title = 'Cave B Ajouter' %}
+	{{ title }}
+{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="../../Public/css/header.css">
+	<link rel="stylesheet" href="../../Public/css/index.css">
+	{{ parent() }}
+{% endblock %}
+{% block body %}
+	{% if _flash.getFlashMessage('stop') %}
+		<div>
+			<p class="errorMessage">{{ _flash.getFlashMessage('stop') }}</p>
+		</div>
+	{% endif %}
+	<header>
+		<ul>
+			<li><a class="linkHeader" href="/cave2/">Accueil</a></li>
+			<li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
+			<li><a class="active linkHeader" href="/cave2/b">Cave B</a></li>
+			<li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
+			<li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
+			<li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
+			<li><a class="linkHeader" href="/cave2/f">Cave F</a></li>
+			<li><a class="linkHeader" href="/cave2/g">Cave G</a></li>
+		</ul>
+	</header>
+	<main>
+		<section>
+			<p class="borderReturn">
+				<a class="link" href="/cave2/b">Retour à la cave B</a>
+			</p>
+			<h1>Modifier</h1>
+			<form action="/cave2/b/edit/{{ apostrophe }}" method="POST">
+				<div class="form-group">
+					<label>Nom :
+					</label>
+					<input type="text" name="nom" class="input form-control" required value="{{ one.nom }}"><br>
+				</div>
+				<div class="form-group form-group-1">
+					<label>Appellation :
+					</label>
+					<input type="text" name="appellation" class="input form-control" required value="{{ one.appellation }}"><br>
+				</div>
+				<div class="form-group form-group-1">
+					<label>Année :
+					</label>
+					<input type="text" name="annee" class="input form-control" required value="{{ one.annee }}"><br>
+				</div>
+				<div class="form-group form-group-1">
+					<label>Type :
+					</label>
+					<select name="type" id="type" required value="{{ one.typev }}">
+						<option>{{ one.typev }}</option>
+						<option value="Vin blanc">Vin blanc</option>
+						<option value="Vin rouge">Vin rouge</option>
+						<option value="Champagne">Champagne</option>
+					</select>
+				</div>
+				<div class="form-group form-group-1">
+					<label>Région :
+					</label>
+					<select name="region" id="region" required value="{{ one.region }}">
+						<option>{{ one.region }}</option>
+						<option value="Alsace">Alsace</option>
+						<option value="Beaujolais">Beaujolais</option>
+						<option value="Bordeaux">Bordeaux</option>
+						<option value="Bourgogne">Bourgogne</option>
+						<option value="Douro">Douro</option>
+						<option value="Jura/Savoie">Jura/Savoie</option>
+						<option value="Languedoc-Roussillon">Languedoc-Roussillon</option>
+						<option value="Provence">Provence</option>
+						<option value="Sud-Ouest">Sud-Ouest</option>
+						<option value="Vallée de la loire">Vallée de la loire</option>
+						<option value="Vallée du Rhône">Vallée du Rhône</option>
+						<option value="Vaud">Vaud</option>
+					</select>
+				</div>
+				<div class="form-group form-group-1">
+					<label>Contenance :
+					</label>
+					<select name="contenance" id="contenance" required value="{{ one.contenance }}">
+						<option>{{ one.contenance }}</option>
+						<option value="20 cl">20 cl</option>
+						<option value="25 cl">25 cl</option>
+						<option value="37,5 cl">37,5 cl</option>
+						<option value="46cl">46cl</option>
+						<option value="75 cl">75 cl</option>
+						<option value="1.5 L">1.5 L</option>
+						<option value="3 L">3 L</option>
+						<option value="4.50 L">4.50 L</option>
+						<option value=" 5 L">
+							5 L</option>
+					</select>
+				</div>
+				<div class="form-group form-group-2">
+					<label>Pays :
+					</label>
+					<select name="pays" id="pays" required value="{{ one.pays }}">
+						<option>{{ one.pays }}</option>
+						<option value="France">France</option>
+						<option value="Espagne">Espagne</option>
+						<option value="Italie">Itaie</option>
+						<option value="Allemagne">Allemagne</option>
+						<option value="Suisse">Suisse</option>
+						<option value="Portugal">Portugal</option>
+					</select>
+				</div>
+				<button class="link borderBot" type="submit">Modifier</button>
+			</form>
+		</section>
+	</main>
+	<script src="../../Public/js/indexB.js"></script>
+{% endblock %}

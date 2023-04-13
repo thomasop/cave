@@ -123,4 +123,18 @@
 	"action" : "addPosition",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/b/editview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerB",
+	"action" : "editView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/b/edit/[a-zA-Z0-9-]+",
+	"controller" : "ControllerB",
+	"action" : "edit",
+	"method" : "POST",
+	"param" : []
 }]
