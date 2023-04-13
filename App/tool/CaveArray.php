@@ -23,6 +23,7 @@ class CaveArray
         for ($i = 0; $i < count($caveAall); $i++) {
             array_push($all, [$caveAall[$i]['id'], str_replace("'", "/", $caveAall[$i]['nom']), $caveAall[$i]['quantite'], $caveAall[$i]['annee'], str_replace("'", "/", $caveAall[$i]['slug']), str_replace("'", "/", $caveAall[$i]['appellation']), $caveAall[$i]['typev'], $caveAall[$i]['region'], $caveAall[$i]['contenance'], $caveAall[$i]['pays'], $caveAall[$i]['colonne'], $caveAall[$i]['ligne']]);
             $test = $caveAall[$i]['colonne'];
+            var_dump($test);
             $test2 = array_keys($arrayP, $test);
             $arrayCave[$test2[0]][$caveAall[$i]['ligne']] = [$caveAall[$i]['nom'], $caveAall[$i]['typev']];
         }
