@@ -62,7 +62,11 @@ function display(data, cave, ar) {
         if (data[11].length == 1) {
             p8.textContent = "Position : " + data[10] + "-" + data[11]
         } else if (data[11].length == 2) {
-            p8.textContent = "Position : " + data[10] + "-" + data[11][1]
+            if (data[11][1] == 0) {
+                p8.textContent = "Position : " + data[10] + "-1" + data[11][1]
+            } else {
+                p8.textContent = "Position : " + data[10] + "-" + data[11][1]
+            }
         } else if (data[11].length == 3) {
             p8.textContent = "Position : " + data[10] + "-" + data[11][2]
         }
@@ -74,7 +78,8 @@ function display(data, cave, ar) {
     var str = ""
     ar.map((o) => {
         let s = o.split("-")
-        s[1].length == 1 ? str = str + o + ", " : (s[1].length == 2 ? str = str + s[0] + "-" + s[1][1] + ", " : str = str + s[0] + "-" + s[1][2] + ", ")
+        console.log(s)
+        s[1].length == 1 ? str = str + o + ", " : (s[1][1] == 0 ? str = str + s[0] + "-1" + s[1][1] + ", " :  (s[1].length == 2 ? str = str + s[0] + "-" + s[1][1] + ", " : str = str + s[0] + "-" + s[1][2] + ", "))
         
     })
     p9.setAttribute("class", "pData")
