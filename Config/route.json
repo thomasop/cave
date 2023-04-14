@@ -172,4 +172,18 @@
 	"action" : "delete",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/c/editview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerC",
+	"action" : "editView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/c/edit/[a-zA-Z0-9-]+",
+	"controller" : "ControllerC",
+	"action" : "edit",
+	"method" : "POST",
+	"param" : []
 }]

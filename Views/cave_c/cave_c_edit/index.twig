@@ -1,6 +1,6 @@
 {% extends "template.twig" %}
 {% block title %}
-	{% set title = 'Cave B Ajouter' %}
+	{% set title = 'Cave C Ajouter' %}
 	{{ title }}
 {% endblock %}
 {% block head %}
@@ -18,8 +18,8 @@
 		<ul>
 			<li><a class="linkHeader" href="/cave2/">Accueil</a></li>
 			<li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
-			<li><a class="active linkHeader" href="/cave2/b">Cave B</a></li>
-			<li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
+			<li><a class="linkHeader" href="/cave2/b">Cave B</a></li>
+			<li><a class="active linkHeader" href="/cave2/c">Cave C</a></li>
 			<li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
 			<li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
 			<li><a class="linkHeader" href="/cave2/f">Cave F</a></li>
@@ -29,10 +29,10 @@
 	<main>
 		<section>
 			<p class="borderReturn">
-				<a class="link" href="/cave2/b">Retour à la cave B</a>
+				<a class="link" href="/cave2/c">Retour à la cave C</a>
 			</p>
 			<h1>Modifier</h1>
-			<form action="/cave2/b/edit/{{ apostrophe }}" method="POST">
+			<form action="/cave2/c/edit/{{ apostrophe }}" method="POST">
 				<div class="form-group">
 					<label>Nom :
 					</label>
