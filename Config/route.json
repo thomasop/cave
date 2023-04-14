@@ -139,6 +139,13 @@
 	"param" : []
 },
 {
+	"path" : "/cave2/b/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerB",
+	"action" : "show",
+	"method" : "GET",
+	"param" : []
+},
+{
 	"path" : "/cave2/c",
 	"controller" : "ControllerC",
 	"action" : "index",
@@ -199,5 +206,12 @@
 	"controller" : "ControllerC",
 	"action" : "addPosition",
 	"method" : "POST",
+	"param" : []
+},
+{
+	"path" : "/cave2/c/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerC",
+	"action" : "show",
+	"method" : "GET",
 	"param" : []
 }]

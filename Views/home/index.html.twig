@@ -79,8 +79,12 @@
             var span = document.createElement("span")
             span.textContent = element[2]
             span.style.marginLeft = "10px"
+            var span2 = document.createElement("span")
+            span2.textContent = "cave : " + element[1]
+            span2.style.marginLeft = "10px"
             div.appendChild(a);
             div.appendChild(span);
+            div.appendChild(span2);
             show.appendChild(div);
         });
     }
