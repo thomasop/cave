@@ -52,7 +52,7 @@ class ControllerA extends Controller
             ]);
         } else {
             $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
-            $this->phpSession()->redirect('/cave/a');
+            $this->phpSession()->redirect('/cave2/a');
         }
 
     }

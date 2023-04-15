@@ -6,6 +6,7 @@ use App\manager\CaveaManager;
 use App\manager\CavebManager;
 use App\manager\CavecManager;
 use App\manager\CavedManager;
+use App\manager\CaveeManager;
 use App\controller\Controller;
 
 class ControllerIndex extends Controller
@@ -15,8 +16,8 @@ class ControllerIndex extends Controller
         $managerA = new CaveaManager();
         $managerB = new CavebManager();
         $managerC = new CavecManager();
-        $managerD = new CavedManager();/* 
-        $managerE = new CaveeManager();
+        $managerD = new CavedManager();
+        $managerE = new CaveeManager();/* 
         $managerF = new CavefManager();
         $managerG = new CavegManager(); */
 
@@ -45,13 +46,13 @@ class ControllerIndex extends Controller
             array_push($allName, [$allD[$i]["nom"], "d", $allD[$i]["annee"]]);
             $all = (int)$all + (int)$allD[$i]["quantite"];
         }
-  /*       
+       
         $allE = $managerE->all();
         for ($i = 0; $i < count($allE); $i++) {
             array_push($allName, [$allE[$i]["nom"], "e", $allE[$i]["annee"]]);
             $all = (int)$all + (int)$allE[$i]["quantite"];
         }
-
+/*  
         $allF = $managerF->all();
         for ($i = 0; $i < count($allF); $i++) {
             array_push($allName, [$allF[$i]["nom"], "f", $allF[$i]["annee"]]);

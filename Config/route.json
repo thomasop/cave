@@ -347,4 +347,11 @@
 	"action" : "addPosition",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/e/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerE",
+	"action" : "show",
+	"method" : "GET",
+	"param" : []
 }]
