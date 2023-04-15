@@ -249,4 +249,18 @@
 	"action" : "delete",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/d/addpositionview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerD",
+	"action" : "addPositionview",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/d/addposition/[a-zA-Z0-9-]+",
+	"controller" : "ControllerD",
+	"action" : "addPosition",
+	"method" : "POST",
+	"param" : []
 }]
