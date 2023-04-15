@@ -305,4 +305,18 @@
 	"action" : "add",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/e/deleteview",
+	"controller" : "ControllerE",
+	"action" : "deleteView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/e/delete",
+	"controller" : "ControllerE",
+	"action" : "delete",
+	"method" : "POST",
+	"param" : []
 }]
