@@ -277,4 +277,11 @@
 	"action" : "edit",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/d/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerD",
+	"action" : "show",
+	"method" : "GET",
+	"param" : []
 }]

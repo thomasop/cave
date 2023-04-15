@@ -1,6 +1,6 @@
 {% extends "template.twig" %}
 {% block title %}
-	{% set title = 'Cave A' %}
+	{% set title = 'Cave D' %}
 	{{ title }}
 {% endblock %}
 {% block head %}
@@ -17,10 +17,10 @@
 	<header>
 		<ul>
 			<li><a class="linkHeader" href="/cave2/">Accueil</a></li>
-			<li><a class="active linkHeader" href="/cave2/a">Cave A</a></li>
+			<li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
 			<li><a class="linkHeader" href="/cave2/b">Cave B</a></li>
 			<li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
-			<li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
+			<li><a class="active linkHeader" href="/cave2/d">Cave D</a></li>
 			<li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
 			<li><a class="linkHeader" href="/cave2/f">Cave F</a></li>
 			<li><a class="linkHeader" href="/cave2/g">Cave G</a></li>
@@ -29,7 +29,7 @@
 	<main>
 		<section>
 			<p class="borderReturn">
-				<a class="link" href="/cave2/a">Retour à la cave A</a>
+				<a class="link" href="/cave2/d">Retour à la cave D</a>
 			</p>
 			<div class="flex-detail">
 				<div>
@@ -57,13 +57,13 @@
 				</div>
 				<div class="flex-detail2">
 					<p class="addbouteille">
-						<a href="/cave2/a/editview/{{ one.slug }}-{{ one.annee }}" class="link add">Modifier cette bouteille</a>
+						<a href="/cave2/d/editview/{{ one.slug }}-{{ one.annee }}" class="link add">Modifier cette bouteille</a>
 					</p>
 					<p class="addbouteille">
-						<a href="/cave2/a/addpositionview/{{ one.slug }}-{{ one.annee }}" class="link add">Ajouter des positions pour cette bouteille</a>
+						<a href="/cave2/d/addpositionview/{{ one.slug }}-{{ one.annee }}" class="link add">Ajouter des positions pour cette bouteille</a>
 					</p>
 					<p class="addbouteille">
-						<a href="/cave2/a/deleteview" class="link add">Supprimer une bouteille dans la cave A</a>
+						<a href="/cave2/d/deleteview" class="link add">Supprimer une bouteille dans la cave D</a>
 					</p>
 				</div>
 			</div>
@@ -126,13 +126,13 @@
 									<td id="{{ inity }}">
 										{% set testslug = slug[test] %}
 										{% if l[1] == "Vin rouge" %}
-											<a class="linkBoutRed" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+											<a class="linkBoutRed" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'd');"></a>
 										{% endif %}
 										{% if l[1] == "Vin blanc" %}
-											<a class="linkBoutWhite" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+											<a class="linkBoutWhite" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'd');"></a>
 										{% endif %}
 										{% if l[1] == "Champagne" %}
-											<a class="linkBoutChamp" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'a');"></a>
+											<a class="linkBoutChamp" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'd');"></a>
 										{% endif %}
 										{% set test = test + 1 %}
 									</td>
