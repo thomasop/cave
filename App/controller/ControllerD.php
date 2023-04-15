@@ -152,4 +152,41 @@ class ControllerD extends Controller
             $this->phpSession()->redirect('/cave2/d');
         }
     }
+
+    public function editView()
+    {
+        $manager = new CavedManager();
+        $strYear = explode("-", $_GET['zz']);
+        $count = count($strYear);
+        $strApostro = str_replace("apostrophe", "'", $_GET['zz']);
+        $one = $manager->getOne(str_replace("-" . $strYear[$count - 1], "", $strApostro), $strYear[$count - 1]);
+        if ($one) {
+            $twigview = $this->getTwig();
+            $twigpostview = $twigview->load('/cave_d/cave_d_edit/index.twig');
+            echo $twigpostview->render([
+                'one' => $one,
+                'apostrophe' => $_GET['zz']
+            ]);
+        } else {
+            $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
+            $this->phpSession()->redirect('/cave2/d');
+        }
+    }
+
+    public function edit()
+    {
+        $manager = new CavedManager();
+        $strYear = explode("-", $_GET['zz']);
+        $count = count($strYear);
+        $strApostro = str_replace("apostrophe", "'", $_GET['zz']);
+        $one = $manager->getOne(str_replace("-" . $strYear[$count - 1], "", $strApostro), $strYear[$count - 1]);
+        if ($one) {
+            $update = $manager->update($one, htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["appellation"]), htmlspecialchars($_POST["annee"]), htmlspecialchars($_POST["type"]), htmlspecialchars($_POST["region"]), htmlspecialchars($_POST["contenance"]), str_replace([" ", "â", "é", "è", "à", "ê", "î", "û", "ô"], ["-", "a", "e", "e", "a", "e", "i", "u", "o"], htmlspecialchars($_POST['nom'])), htmlspecialchars($_POST['pays']));
+            $this->phpSession()->set('stop', 'Cette bouteille a été modifié.');
+            $this->phpSession()->redirect('/cave2/d');
+        } else {
+            $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
+            $this->phpSession()->redirect('/cave2/d');
+        }
+    }
 }
