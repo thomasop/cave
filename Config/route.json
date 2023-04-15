@@ -291,4 +291,18 @@
 	"action" : "index",
 	"method" : "GET",
 	"param" : []
+},
+{
+	"path" : "/cave2/e/addview",
+	"controller" : "ControllerE",
+	"action" : "addView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/e/add",
+	"controller" : "ControllerE",
+	"action" : "add",
+	"method" : "POST",
+	"param" : []
 }]
