@@ -354,4 +354,11 @@
 	"action" : "show",
 	"method" : "GET",
 	"param" : []
+},
+{
+	"path" : "/cave2/f",
+	"controller" : "ControllerF",
+	"action" : "index",
+	"method" : "GET",
+	"param" : []
 }]
