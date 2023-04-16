@@ -1,0 +1,151 @@
+{% extends "template.twig" %}
+{% block title %}
+	{% set title = 'Cave G' %}
+	{{ title }}
+{% endblock %}
+{% block head %}
+	<link rel="stylesheet" href="../../Public/css/header.css">
+	<link rel="stylesheet" href="../../Public/css/index.css">
+	{{ parent() }}
+{% endblock %}
+{% block body %}
+	{% if _flash.getFlashMessage('stop') %}
+		<div>
+			<p class="errorMessage">{{ _flash.getFlashMessage('stop') }}</p>
+		</div>
+	{% endif %}
+	<header>
+		<ul>
+			<li><a class="linkHeader" href="/cave2/">Accueil</a></li>
+			<li><a class="linkHeader" href="/cave2/a">Cave A</a></li>
+			<li><a class="linkHeader" href="/cave2/b">Cave B</a></li>
+			<li><a class="linkHeader" href="/cave2/c">Cave C</a></li>
+			<li><a class="linkHeader" href="/cave2/d">Cave D</a></li>
+			<li><a class="linkHeader" href="/cave2/e">Cave E</a></li>
+			<li><a class="linkHeader" href="/cave2/f">Cave F</a></li>
+			<li><a class="active linkHeader" href="/cave2/g">Cave G</a></li>
+		</ul>
+	</header>
+	<main>
+		<section>
+			<p class="borderReturn">
+				<a class="link" href="/cave2/g">Retour à la cave G</a>
+			</p>
+			<div class="flex-detail">
+				<div>
+					<h1>{{one.nom}}</h1>
+					<p class="bouteille">Quantité :
+						{{one.quantite}}</p>
+					<p class="bouteille1">Année :
+						{{one.annee}}</p>
+					<p class="bouteille1">Appellation :
+						{{one.appellation}}</p>
+					<p class="bouteille1">Type :
+						{{one.typev}}</p>
+					<p class="bouteille1">Région :
+						{{one.region}}</p>
+					<p class="bouteille1">Pays :
+						{{one.pays}}</p>
+					<p class="bouteille1">Contenance :
+						{{one.contenance}}</p>
+					<p class="bouteille1">Toutes les positions de cette bouteille:</p>
+					<ul class="bouteille2 listpos">
+						{% for pos in allpos %}
+							<li>{{pos}}</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="flex-detail2">
+					<p class="addbouteille">
+						<a href="/cave2/g/editview/{{ one.slug }}-{{ one.annee }}" class="link add">Modifier cette bouteille</a>
+					</p>
+					<p class="addbouteille">
+						<a href="/cave2/g/addpositionview/{{ one.slug }}-{{ one.annee }}" class="link add">Ajouter des positions pour cette bouteille</a>
+					</p>
+					<p class="addbouteille">
+						<a href="/cave2/g/deleteview" class="link add">Supprimer une bouteille dans la cave G</a>
+					</p>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="modale">
+				<button class="burgerBtnClose">
+					<div>
+						<span class="cross">&times;</span>
+					</div>
+				</button>
+				<div class="dataModal"></div>
+			</div>
+			<div class="cave caveA">
+				<table>
+					{% set inity = 1 %}
+					{% set init = 1 %}
+					{% set test = 0 %}
+
+					<tr>
+						<th></th>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+						<th>4</th>
+						<th>5</th>
+						<th>6</th>
+						<th>7</th>
+						<th>8</th>
+						<th>9</th>
+						<th>10</th>
+					</tr>
+
+					<tr>
+						{% for list in lists %}
+							{% set break = false %}
+							{% for key, letter in letters %}
+								{% if not break %}
+									{% set key = init %}
+
+									{% if key is same as(init) %}
+										<th class="letterTab">
+											<p>{{letters[key]}}</p>
+										</th>
+									{% endif %}
+								{% endif %}
+								{% set init = init + 1 %}
+								{% set break = true %}
+							{% endfor %}
+							{% for l in list %}
+								{% if l is not iterable %}
+									{% if l|trim(' ') == "vide" %}
+										<td id="{{ inity }}">
+											<p></p>
+										</td>
+										{% set test = test + 1 %}
+										{% set inity = inity + 1 %}
+									{% endif %}
+								{% else %}
+									<td id="{{ inity }}">
+										{% set testslug = slug[test] %}
+										{% if l[1] == "Vin rouge" %}
+											<a class="linkBoutRed" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'g');"></a>
+										{% endif %}
+										{% if l[1] == "Vin blanc" %}
+											<a class="linkBoutWhite" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'g');"></a>
+										{% endif %}
+										{% if l[1] == "Champagne" %}
+											<a class="linkBoutChamp" href="" onclick="myHandler('{{ testslug|json_encode }}', '{{ all|json_encode }}', '{{ test|json_encode }}', 'g');"></a>
+										{% endif %}
+										{% set test = test + 1 %}
+									</td>
+									{% set inity = inity + 1 %}
+								{% endif %}
+							{% endfor %}
+						</tr>
+					{% endfor %}
+				</table>
+			</div>
+		</section>
+	</main>
+	<script src="../../Public/js/index.js"></script>
+	<script src="../../Public/js/seeDetailA.js"></script>
+	<script src="../../Public/js/handler.js"></script>
+{% endblock %}

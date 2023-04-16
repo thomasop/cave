@@ -424,4 +424,75 @@
 	"action" : "show",
 	"method" : "GET",
 	"param" : []
+},
+{
+	"path" : "/cave2/g",
+	"controller" : "ControllerG",
+	"action" : "index",
+	"method" : "GET",
+	"param" : []
+},
+
+{
+	"path" : "/cave2/g/addview",
+	"controller" : "ControllerG",
+	"action" : "addView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/add",
+	"controller" : "ControllerG",
+	"action" : "add",
+	"method" : "POST",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/deleteview",
+	"controller" : "ControllerG",
+	"action" : "deleteView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/delete",
+	"controller" : "ControllerG",
+	"action" : "delete",
+	"method" : "POST",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/detail/[a-zA-Z0-9-]+",
+	"controller" : "ControllerG",
+	"action" : "show",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/addpositionview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerG",
+	"action" : "addPositionview",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/addposition/[a-zA-Z0-9-]+",
+	"controller" : "ControllerG",
+	"action" : "addPosition",
+	"method" : "POST",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/editview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerG",
+	"action" : "editView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/g/edit/[a-zA-Z0-9-]+",
+	"controller" : "ControllerG",
+	"action" : "edit",
+	"method" : "POST",
+	"param" : []
 }]

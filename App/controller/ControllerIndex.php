@@ -8,6 +8,7 @@ use App\manager\CavecManager;
 use App\manager\CavedManager;
 use App\manager\CaveeManager;
 use App\manager\CavefManager;
+use App\manager\CavegManager;
 use App\controller\Controller;
 
 class ControllerIndex extends Controller
@@ -19,8 +20,8 @@ class ControllerIndex extends Controller
         $managerC = new CavecManager();
         $managerD = new CavedManager();
         $managerE = new CaveeManager();
-        $managerF = new CavefManager();/* 
-        $managerG = new CavegManager(); */
+        $managerF = new CavefManager(); 
+        $managerG = new CavegManager(); 
 
         $all = 0;
         $allName = [];
@@ -59,12 +60,12 @@ class ControllerIndex extends Controller
             array_push($allName, [$allF[$i]["nom"], "f", $allF[$i]["annee"]]);
             $all = (int)$all + (int)$allF[$i]["quantite"];
         }
-/* 
+ 
         $allG = $managerG->all();
         for ($i = 0; $i < count($allG); $i++) {
             array_push($allName, [$allG[$i]["nom"], "g", $allG[$i]["annee"]]);
             $all = (int)$all + (int)$allG[$i]["quantite"];
-        } */
+        } 
         $twigview = $this->getTwig();     
         $twigindex = $twigview->load('home/index.html.twig');
         echo $twigindex->render([
