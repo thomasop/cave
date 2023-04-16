@@ -403,4 +403,18 @@
 	"action" : "delete",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/f/editview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerF",
+	"action" : "editView",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/f/edit/[a-zA-Z0-9-]+",
+	"controller" : "ControllerF",
+	"action" : "edit",
+	"method" : "POST",
+	"param" : []
 }]
