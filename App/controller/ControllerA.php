@@ -36,10 +36,18 @@ class ControllerA extends Controller
             $data = $caveArray->array($manager);
             $posArray = [];
             for ($i = 0; $i < count($data[4]); $i++) {
-                if (str_replace("-" . $strYear[$count - 1], "", $strApostro) == $data[4][$i][1] && $strYear[$count - 1] == $data[4][$i][3]) {
-                    array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11]);
+                if (str_replace("-" . $strYear[$count - 1], "", $strApostro) == str_replace([" ", "â", "é", "è", "à", "ê", "î", "û", "ô"], ["-", "a", "e", "e", "a", "e", "i", "u", "o"], $data[4][$i][1]) && $strYear[$count - 1] == $data[4][$i][3]) {
+                    if (strlen($data[4][$i][11]) == 2) {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11][1]);
+                    } else if (strlen($data[4][$i][11]) == 3) {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11][2]);
+                    } else {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11]);
+                    }
+                    
                 }
             }
+            
             $twigview = $this->getTwig();
             $twigpostview = $twigview->load('cave_a/cave_a_detail/index.twig');
             echo $twigpostview->render([

@@ -189,4 +189,42 @@ class ControllerF extends Controller
             $this->phpSession()->redirect('/cave2/f');
         }
     }
+
+    function show()
+    {
+        $manager = new CavefManager();
+        $strYear = explode("-", $_GET['zz']);
+        $count = count($strYear);
+        $strApostro = str_replace("apostrophe", "'", $_GET['zz']);
+        $one = $manager->getOne(str_replace("-" . $strYear[$count - 1], "", $strApostro), $strYear[$count - 1]);
+        if ($one) {
+            $caveArray = new CaveArray();
+            $data = $caveArray->array($manager);
+            $posArray = [];
+            for ($i = 0; $i < count($data[4]); $i++) {
+                if (str_replace("-" . $strYear[$count - 1], "", $strApostro) == str_replace([" ", "â", "é", "è", "à", "ê", "î", "û", "ô"], ["-", "a", "e", "e", "a", "e", "i", "u", "o"], $data[4][$i][1]) && $strYear[$count - 1] == $data[4][$i][3]) {
+                    if (strlen($data[4][$i][11]) == 2) {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11][1]);
+                    } else if (strlen($data[4][$i][11]) == 3) {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11][2]);
+                    } else {
+                        array_push($posArray, $data[4][$i][10] . "-" . $data[4][$i][11]);
+                    }                }
+            }
+            $twigview = $this->getTwig();
+            $twigpostview = $twigview->load('cave_f/cave_f_detail/index.twig');
+            echo $twigpostview->render([
+            'lists' => $data[0],
+            'letters' => $data[1],
+            'one' => $one,
+            'slug' => $data[3],
+            'all' => $data[4],
+            'allpos' => $posArray
+            ]);
+        } else {
+            $this->phpSession()->set('stop', 'Cette bouteille n\'as pas été trouvé.');
+            $this->phpSession()->redirect('/cave2/f');
+        }
+
+    }
 }
