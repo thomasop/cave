@@ -375,4 +375,18 @@
 	"action" : "add",
 	"method" : "POST",
 	"param" : []
+},
+{
+	"path" : "/cave2/f/addpositionview/[a-zA-Z0-9-]+",
+	"controller" : "ControllerF",
+	"action" : "addPositionview",
+	"method" : "GET",
+	"param" : []
+},
+{
+	"path" : "/cave2/f/addposition/[a-zA-Z0-9-]+",
+	"controller" : "ControllerF",
+	"action" : "addPosition",
+	"method" : "POST",
+	"param" : []
 }]
